@@ -7,10 +7,14 @@ To view the deployed catalog-app project, you need to add the following string t
 <br>After that you can access http://catalog-app.com to view the catalog application. 
 
 ## Deployment details
-* SSH port was changed to 2200 in `/etc/ssh/sshd_config` file:
-	* `Port 2200`
+* Update all currently installed packages
+	* `sudo apt-get update`
+	* `sudo apt-get upgrade`
+* Use `sudo vim /etc/ssh/sshd_config` and then change Port 22 to Port 2200 , save & quit.
+	* Reload SSH using `sudo service ssh restart`
 * Remote root login was disabled in `/etc/ssh/sshd_config` file:
 	* `PermitRootLogin no`
+	* Reload SSH using `sudo service ssh restart`
 * Key-based SSH authentication is enforced in `/etc/ssh/sshd_config` file:
 	* `RSAAuthentication yes`
 	* `PubkeyAuthentication yes`
@@ -41,4 +45,9 @@ To view the deployed catalog-app project, you need to add the following string t
 
 * PostegreSQL configuration files checked  for local connections permition only.
 * New database user **catalog** created with limited permissions.
+	* `sudo su - postegresql`
+	* `psql`
+	* `CREATE USER catalog;`
+	* `GRANT select, update, insert, delete on ALL TABLES IN SCHEMA PUBLIC to catalog;`
+	
 
