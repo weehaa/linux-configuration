@@ -50,4 +50,8 @@ To view the deployed catalog-app project, you need to add the following string t
 	* `CREATE USER catalog;`
 	* `GRANT select, update, insert, delete on ALL TABLES IN SCHEMA PUBLIC to catalog;`
 	
+### TODO:
+* Install and configure monitoring tools like Munin or Nagios.
+* Install and configure fail2ban, or any other package to monitor unsuccessful login attempts.
+* Install and configure unattended-upgrades.
 
